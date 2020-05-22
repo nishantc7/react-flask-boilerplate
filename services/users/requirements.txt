@@ -4,3 +4,5 @@ Flask==1.1.2
   - Jinja2 [required: >=2.10.1, installed: 2.11.2]
     - MarkupSafe [required: >=0.23, installed: 1.1.1]
   - Werkzeug [required: >=0.15, installed: 1.0.1]
+  Flask-SQLAlchemy
+  psycopg2

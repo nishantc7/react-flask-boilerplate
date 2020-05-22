@@ -1,0 +1,6 @@
+env
+Pipfile.lock
+Pipfile
+.dockerignore
+Dockerfile-dev
+Dockerfile-prod
