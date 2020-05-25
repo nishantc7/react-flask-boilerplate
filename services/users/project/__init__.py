@@ -2,7 +2,6 @@ import os
 from flask import Flask, jsonify
 # import datetime
 from flask_sqlalchemy import SQLAlchemy
-from project.api.users import users_blueprint
 
 
 # Database Config
@@ -20,6 +19,8 @@ def create_app(script_info=None):
     # set up extensions
     db.init_app(app)
     # register blueprints
+    # Import must be here to avoid circular import issue
+    from project.api.users import users_blueprint
     app.register_blueprint(users_blueprint)
     # Shell context
     app.shell_context_processor({'app': app, 'db': db})

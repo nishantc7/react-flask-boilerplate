@@ -36,14 +36,14 @@ class TestTestingConfig(TestCase):
         )
 
 
-class TestProductionConfig(TestCase):
-    def create_app(self):
-        app.config.from_object('project.config.TestingConfig')
-        return app
-
-    def test_app_is_production(self):
-        self.assertTrue(app.config['SECRET_KEY'] == 'not_precious')
-        self.assertFalse(app.config['TESTING'])
+# class TestProductionConfig(TestCase):
+#    def create_app(self):
+#        app.config.from_object('project.config.TestingConfig')
+#        return app
+#
+#    def test_app_is_production(self):
+#        self.assertTrue(app.config['SECRET_KEY'] == 'not_precious')
+#        self.assertFalse(app.config['TESTING'])
 
 
 if __name__ == '__main__':
