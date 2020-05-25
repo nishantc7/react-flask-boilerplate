@@ -1,6 +1,15 @@
 import json
 import unittest
 from project.tests.base import BaseTestCase
+from project import db
+from project.api.models import User
+
+
+def add_user(username, email):
+    user = User(username=username, email=email)
+    db.session.add(user)
+    db.session.commit()
+    return user
 
 
 class TestUserService(BaseTestCase):
@@ -83,6 +92,39 @@ class TestUserService(BaseTestCase):
             self.assertEqual(response.status_code, 400)
             self.assertIn('That email already exists.', data['message'])
             self.assertIn('fail', data['status'])
+
+    def test_single_user(self):
+        """Try to get single user"""
+        user = add_user('nishant', 'nishant@gmail.com')
+        with self.client:
+            response = self.client.get(f'/users/{user.id}')
+            data = json.loads(response.data.decode())
+            self.assertEqual(response.status_code, 200)
+            self.assertIn('nishant', data['data']['username'])
+            self.assertIn('nishant@gmail.com', data['data']['email'])
+            self.assertIn('success', data['status'])
+
+    def test_single_user_incorrect_id(self):
+        """Ensure error is thrown if the id does not exist."""
+        with self.client:
+            response = self.client.get('/users/999')
+            data = json.loads(response.data.decode())
+            self.assertEqual(response.status_code, 404)
+            self.assertIn('User does not exist', data['message'])
+            self.assertIn('fail', data['status'])
+
+    def test_all_users(self):
+        """Ensure all users list works"""
+        add_user('nishant', "nishant@email.com")
+        add_user('rick', "rick@email.com")
+        with self.client:
+            response = self.client.get('/users')
+            data = json.loads(response.data.decode())
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(len(data['data']['users']), 2)
+            self.assertIn('nishant', data['data']['users'][0]['username'])
+            self.assertIn('rick', data['data']['users'][1]['username'])
+            self.assertIn('success', data['status'])
 
 
 if __name__ == '__main__':
