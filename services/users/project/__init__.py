@@ -2,10 +2,12 @@ import os
 from flask import Flask
 # import datetime
 from flask_sqlalchemy import SQLAlchemy
+from flask_debugtoolbar import DebugToolbarExtension
 
 
 # Database Config
 db = SQLAlchemy()
+toolbar = DebugToolbarExtension()
 
 
 def create_app(script_info=None):
@@ -18,6 +20,8 @@ def create_app(script_info=None):
 
     # set up extensions
     db.init_app(app)
+    toolbar.init_app(app)
+
     # register blueprints
     # Import must be here to avoid circular import issue
     from project.api.users import users_blueprint
