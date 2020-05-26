@@ -17,7 +17,12 @@ def recreatedb():
 
 @cli.command()
 def seeddb():
-    db.session.add(User(username='nishant', email="nishantmailbox2011@gmail.com"))
+    db.session.add(
+        User(
+            username='nishant',
+            email="nishantmailbox2011@gmail.com"
+        )
+    )
     db.session.commit()
 
 

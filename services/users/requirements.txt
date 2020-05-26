@@ -7,3 +7,4 @@ Flask==1.1.2
 Flask-SQLAlchemy
 psycopg2
 Flask-Testing
+gunicorn==19.7.1
