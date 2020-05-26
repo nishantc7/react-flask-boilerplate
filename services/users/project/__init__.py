@@ -1,5 +1,5 @@
 import os
-from flask import Flask, jsonify
+from flask import Flask
 # import datetime
 from flask_sqlalchemy import SQLAlchemy
 

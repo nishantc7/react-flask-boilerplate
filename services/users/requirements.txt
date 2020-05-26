@@ -8,3 +8,5 @@ Flask-SQLAlchemy
 psycopg2
 Flask-Testing
 gunicorn==19.7.1
+coverage>=4.4.2
+flake8>=3.7.0,<3.8.0
