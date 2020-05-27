@@ -132,6 +132,8 @@ Pipfile
 Pipfile.lock
 .vscode/
 
+# React 
+
 # dependencies
 services/client/node_modules
 services/client/.pnp
