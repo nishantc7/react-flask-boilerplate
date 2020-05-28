@@ -22,7 +22,8 @@ class TestUserService(BaseTestCase):
                 '/users',
                 data=json.dumps({
                     'username': 'nishant',
-                    'email': 'nishant@testmail.com'
+                    'email': 'nishant@testmail.com',
+                    'password': 'over9000'
                 }),
                 content_type='application/json',
             )
@@ -67,7 +68,9 @@ class TestUserService(BaseTestCase):
                 '/users',
                 data=json.dumps({
                     'username': 'nishant',
-                    'email': 'nishant@testmail.com'
+                    'email': 'nishant@testmail.com',
+                    'password': 'over9000'
+
                 }),
                 content_type='application/json',
             )
@@ -76,7 +79,8 @@ class TestUserService(BaseTestCase):
                 '/users',
                 data=json.dumps({
                     'username': 'nishant',
-                    'email': 'nishant@testmail.com'
+                    'email': 'nishant@testmail.com',
+                    'password': 'over9000'
                 }),
                 content_type='application/json',
             )
@@ -87,7 +91,7 @@ class TestUserService(BaseTestCase):
 
     def test_single_user(self):
         """Try to get single user"""
-        user = add_user('nishant', 'nishant@gmail.com')
+        user = add_user('nishant', 'nishant@gmail.com', 'over9000')
         with self.client:
             response = self.client.get(f'/users/{user.id}')
             data = json.loads(response.data.decode())
@@ -107,8 +111,8 @@ class TestUserService(BaseTestCase):
 
     def test_all_users(self):
         """Ensure all users list works"""
-        add_user('nishant', "nishant@email.com")
-        add_user('rick', "rick@email.com")
+        add_user('nishant', "nishant@email.com", 'over9000')
+        add_user('rick', "rick@email.com", 'over9000')
         with self.client:
             response = self.client.get('/users')
             data = json.loads(response.data.decode())
@@ -117,6 +121,22 @@ class TestUserService(BaseTestCase):
             self.assertIn('nishant', data['data']['users'][0]['username'])
             self.assertIn('rick', data['data']['users'][1]['username'])
             self.assertIn('success', data['status'])
+
+    def test_add_user_no_password(self):
+        """Error thrown when password key is not passed"""
+        with self.client:
+            response = self.client.post(
+                '/users',
+                data=json.dumps({
+                    'username': 'nishant',
+                    'email': 'nishant@testmail.com',
+                }),
+                content_type='application/json',
+            )
+            data = json.loads(response.data.decode())
+            self.assertEqual(response.status_code, 400)
+            self.assertIn('Invalid payload.', data['message'])
+            self.assertIn('fail', data['status'])
 
 
 if __name__ == '__main__':
