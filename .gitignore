@@ -141,9 +141,10 @@ services/client/*.pnp.js
 
 # testing
 services/client/coverage
-services/client/src/
+
 # production
-services/client/src/components/__tests__/__snapshots__
+
+services/client/src/components/__tests__/__snapshots__/
 
 # misc
 .DS_Store
