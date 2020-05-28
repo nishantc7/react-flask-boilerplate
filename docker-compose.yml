@@ -6,7 +6,7 @@ services:
         container_name: users
         build: 
             context: ./services/users
-            dockerfile: Dockerfile-prod
+            dockerfile: Dockerfile
         expose: 
             - 5000
         environment: 
