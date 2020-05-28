@@ -4,3 +4,4 @@ Pipfile
 .dockerignore
 Dockerfile-dev
 Dockerfile-prod
+migrations
