@@ -19,7 +19,7 @@
 - Client side routing with React
 - Bootstraped React  
 - Commands to recreate `manage.py recreatedb` and setup database `manage.py seeddb`
-# Steps to Reproduce
+## Steps to Reproduce
 1. Clone this repository
 2. Export Environment Variable with the command
 `export REACT_APP_USERS_SERVICE_URL=http://0.0.0.0` or your localhost for docker-machine
@@ -28,7 +28,10 @@
 docker-compose up -d
 python manage.py recreatedb
 ```
-### Instance should be deployed at localhost, try by adding a new user.
+### Instance should be deployed at localhost, try by adding a new user.  
+
+## Homepage  
+![screenshot homepage](https://github.com/nishantc7/react-flask-boilerplate/blob/master/screenshot.png)
 
 ##### This was made as an effort only to learn containerization and routing, there may be issues.
 
