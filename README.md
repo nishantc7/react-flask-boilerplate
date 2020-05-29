@@ -23,10 +23,12 @@
 1. Clone this repository
 2. Export Environment Variable with the command
 `export REACT_APP_USERS_SERVICE_URL=http://0.0.0.0` or your localhost for docker-machine
+3. Run the following steps in docker container
 ```
 docker-compose up -d
+python manage.py recreatedb
 ```
-### Instance should be deployed at localhost.
+### Instance should be deployed at localhost, try by adding a new user.
 
 ##### This was made as an effort only to learn containerization and routing.
 
