@@ -25,6 +25,17 @@ const AddUser = (props) => {
           onChange={props.handleChange}  // new
         />
       </div>
+      <div className="form-group">
+        <input
+          name="password"
+          className="form-control input-lg"
+          type="password"
+          placeholder="Enter password"
+          required
+          value={props.password}
+          onChange={props.handleChange}  // new
+        />
+      </div>
       <input
         type="submit"
         className="btn btn-primary btn-lg btn-block"

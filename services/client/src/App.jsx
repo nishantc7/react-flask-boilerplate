@@ -16,6 +16,7 @@ class App extends Component{
             users: [],
             username: '',
             email: '',
+            password: '',
 
         };
         this.addUser = this.addUser.bind(this)
@@ -34,12 +35,13 @@ class App extends Component{
         event.preventDefault();
         const data = {
           username: this.state.username,
-          email: this.state.email
+          email: this.state.email,
+          password: this.state.password
         };
         axios.post(`${process.env.REACT_APP_USERS_SERVICE_URL}/users`, data)
         .then((res) => {
           this.getUsers();  // new
-          this.setState({ username: '', email: '' });  // new
+          this.setState({ username: '', email: '', password:''});  // new
         })
         .catch((err) => { console.log(err); });
       };
