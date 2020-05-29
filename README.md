@@ -13,6 +13,7 @@
 - Containerized with docker
 - Basic User Model 
 - JWT Auth Setup 
+- Made different Configs for development, production and testing
 - Setup Flask CORS and Database Migrations
 - Test coverage for flask with Codecov
 - Client side routing with React
