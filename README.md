@@ -26,10 +26,11 @@
 3. Run the following steps in docker container
 ```
 docker-compose up -d
-python manage.py recreatedb
+docker-compose run users python manage.py recreatedb
+docker-compose run users python manage.py seeddb
 ```
 ### Instance should be deployed at localhost, try by adding a new user.  
-- Run flask tests with `manage.py test`
+- Run flask tests with `docker-compose run users python manage.py test`
 - Run client side tests with `npm test` in client directory.
 
 ## Homepage  
