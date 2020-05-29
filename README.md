@@ -16,7 +16,8 @@
 - Made different Configs for development, production and testing
 - Setup Flask CORS and Database Migrations
 - Test coverage for flask with Codecov
-- Client side routing with React
+- Client side routing with `react-router-dom`
+- Setup Snapshot testing with enzyme
 - Bootstraped React  
 - Commands to recreate `manage.py recreatedb` and setup database `manage.py seeddb`
 ## Steps to Reproduce
