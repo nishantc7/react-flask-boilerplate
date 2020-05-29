@@ -36,6 +36,8 @@ def create_app(script_info=None):
     # Import must be here to avoid circular import issue
     from project.api.users import users_blueprint
     app.register_blueprint(users_blueprint)
+    from project.api.auth import auth_blueprint
+    app.register_blueprint(auth_blueprint)
     # Shell context
     app.shell_context_processor({'app': app, 'db': db})
     return app
