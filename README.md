@@ -29,6 +29,8 @@ docker-compose up -d
 python manage.py recreatedb
 ```
 ### Instance should be deployed at localhost, try by adding a new user.  
+- Run flask tests with `manage.py test`
+- Run client side tests with `npm test` in client directory.
 
 ## Homepage  
 ![screenshot homepage](https://github.com/nishantc7/react-flask-boilerplate/blob/master/screenshot.png)
