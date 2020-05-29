@@ -30,6 +30,5 @@ python manage.py recreatedb
 ```
 ### Instance should be deployed at localhost, try by adding a new user.
 
-##### This was made as an effort only to learn containerization and routing.
-
+##### This was made as an effort only to learn containerization and routing, there may be issues.
 
