@@ -48,7 +48,8 @@ def seeddb():
     db.session.add(
         User(
             username='nishant',
-            email="nishantmailbox2011@gmail.com"
+            email="nishantmailbox2011@gmail.com",
+            password='greaterthaneight'
         )
     )
     db.session.commit()
