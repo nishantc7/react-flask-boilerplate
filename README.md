@@ -1,6 +1,5 @@
 # React Flask BoilerPlate
-[![Build Status](https://travis-ci.com/nishantc7/coding-platform.svg?token=keXQyTpyLgpVLT7cyS2Q&branch=master)](https://travis-ci.com/nishantc7/coding-platform)
-
+[![Build Status](https://travis-ci.com/nishantc7/react-flask-boilerplate.svg?branch=master)](https://travis-ci.com/nishantc7/react-flask-boilerplate)
 ### A boilerplate to kickstart a fullstack project with Flask and ReactJS  
 
 ## Services  
