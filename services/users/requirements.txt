@@ -1,4 +1,4 @@
-Flask==1.1.2
+Flask==2.3.2
   - click [required: >=5.1, installed: 7.1.2]
   - itsdangerous [required: >=0.24, installed: 1.1.0]
   - Jinja2 [required: >=2.10.1, installed: 2.11.2]
